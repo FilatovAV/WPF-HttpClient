@@ -41,12 +41,12 @@ namespace CompanyEmployeesSQL
         /// </summary>
         public void LoadDB()
         {
-            var url2 = @"http://localhost:16217/api/Departments";
+            var url2 = @"http://localhost:1173/api/Departments";
             httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
             var res = httpClient.GetStringAsync(url2).Result;
             OcDepartment = JsonConvert.DeserializeObject<ObservableCollection<Department>>(res);
             
-            url2 = @"http://localhost:16217/api/Employees";
+            url2 = @"http://localhost:1173/api/Employees";
             httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
             res = httpClient.GetStringAsync(url2).Result;
             OcEmployees = JsonConvert.DeserializeObject<ObservableCollection<Employee>>(res);
@@ -57,7 +57,7 @@ namespace CompanyEmployeesSQL
         /// <param name="dep"></param>
         public void RemoveDepartment(Department dep)
         {
-            var url2 = @"http://localhost:16217/api/Departments/" + dep.Id; //Строка по которой производиться обращение к таблице
+            var url2 = @"http://localhost:1173/api/Departments/" + dep.Id; //Строка по которой производиться обращение к таблице
             var res = httpClient.DeleteAsync(url2).Result; //отправляем 
             OcDepartment.Remove(dep);
         }
@@ -82,7 +82,7 @@ namespace CompanyEmployeesSQL
             {
                 item.Department = dep; item.DepartmentId = dep.Id;
                 var jsonEmp = JsonConvert.SerializeObject(item);
-                var url2 = @"http://localhost:16217/api/Employees/" + item.Id.ToString(); //Строка по которой производиться обращение к таблице
+                var url2 = @"http://localhost:1173/api/Employees/" + item.Id.ToString(); //Строка по которой производиться обращение к таблице
                 StringContent stringC = new StringContent(jsonEmp, Encoding.UTF8, "application/json"); //Строка которая будет передаваться web сервису
                 var res = httpClient.PutAsync(url2, stringC).Result; //отправляем 
             }
@@ -94,7 +94,7 @@ namespace CompanyEmployeesSQL
         /// <param name="emp"></param>
         public void RemoveEmployee(Employee emp)
         {
-            var url2 = @"http://localhost:16217/api/Employees/" + emp.Id; //Строка по которой производиться обращение к таблице
+            var url2 = @"http://localhost:1173/api/Employees/" + emp.Id; //Строка по которой производиться обращение к таблице
             var res = httpClient.DeleteAsync(url2).Result; //отправляем 
             OcEmployees.Remove(emp);
         }
@@ -111,7 +111,7 @@ namespace CompanyEmployeesSQL
             {
                 NewEmployee = item as Employee;
                 var jsonEmp = JsonConvert.SerializeObject(NewEmployee);
-                var url2 = @"http://localhost:16217/api/Employees/" + NewEmployee.Id.ToString(); //Строка по которой производиться обращение к таблице
+                var url2 = @"http://localhost:1173/api/Employees/" + NewEmployee.Id.ToString(); //Строка по которой производиться обращение к таблице
                 StringContent stringC = new StringContent(jsonEmp, Encoding.UTF8, "application/json"); //Строка которая будет передаваться web сервису
                 var res = httpClient.PutAsync(url2, stringC).Result; //отправляем 
             }
@@ -125,7 +125,7 @@ namespace CompanyEmployeesSQL
             foreach (var item in employees)
             {
                 var jsonEmp = JsonConvert.SerializeObject(item);
-                var url2 = @"http://localhost:16217/api/Employees/" + item.Id.ToString(); //Строка по которой производиться обращение к таблице
+                var url2 = @"http://localhost:1173/api/Employees/" + item.Id.ToString(); //Строка по которой производиться обращение к таблице
                 StringContent stringC = new StringContent(jsonEmp, Encoding.UTF8, "application/json"); //Строка которая будет передаваться web сервису
                 var res = httpClient.PutAsync(url2, stringC).Result; //отправляем 
             }
@@ -140,7 +140,7 @@ namespace CompanyEmployeesSQL
             foreach (Department item in departments)
             {
                 var jsonEmp = JsonConvert.SerializeObject(item);
-                var url2 = @"http://localhost:16217/api/Departments/" + item.Id.ToString(); //Строка по которой производиться обращение к таблице
+                var url2 = @"http://localhost:1173/api/Departments/" + item.Id.ToString(); //Строка по которой производиться обращение к таблице
                 StringContent stringC = new StringContent(jsonEmp, Encoding.UTF8, "application/json"); //Строка которая будет передаваться web сервису
                 var res = httpClient.PutAsync(url2, stringC).Result; //отправляем 
 
@@ -168,7 +168,7 @@ namespace CompanyEmployeesSQL
             Employee emp = new Employee { Name = "NewNewNew", Age = 1, Salary = 111, Department = dep, DepartmentId = dep.Id };
             var jsonEmp = JsonConvert.SerializeObject(emp);
 
-            var url2 = @"http://localhost:16217/api/Employees"; //Строка по которой производиться обращение к таблице
+            var url2 = @"http://localhost:1173/api/Employees"; //Строка по которой производиться обращение к таблице
             StringContent stringC = new StringContent(jsonEmp, Encoding.UTF8, "application/json"); //Строка которая будет передаваться web сервису
             var res = httpClient.PostAsync(url2, stringC).Result; //отправляем 
 
@@ -186,7 +186,7 @@ namespace CompanyEmployeesSQL
             Department dep = new Department { DepartmentName = "NewDepartment", Id = inx };
             var jsonEmp = JsonConvert.SerializeObject(dep);
 
-            var url2 = @"http://localhost:16217/api/Departments"; //Строка по которой производиться обращение к таблице
+            var url2 = @"http://localhost:1173/api/Departments"; //Строка по которой производиться обращение к таблице
             StringContent stringC = new StringContent(jsonEmp, Encoding.UTF8, "application/json"); //Строка которая будет передаваться web сервису
             var res = httpClient.PostAsync(url2, stringC).Result; //отправляем 
 

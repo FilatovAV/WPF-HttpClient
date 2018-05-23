@@ -70,3 +70,26 @@ C:\Users\GEOBRIDGE\Desktop\GEEK BRAINS\C#\Уровень 2\Lesson 8\Task\HttpCli
 C:\Users\GEOBRIDGE\Desktop\GEEK BRAINS\C#\Уровень 2\Lesson 8\Task\HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL EF Elementary.csproj.CopyComplete
 C:\Users\GEOBRIDGE\Desktop\GEEK BRAINS\C#\Уровень 2\Lesson 8\Task\HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL.exe
 C:\Users\GEOBRIDGE\Desktop\GEEK BRAINS\C#\Уровень 2\Lesson 8\Task\HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL.pdb
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\bin\Debug\CompanyEmployeesSQL.exe.config
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\bin\Debug\CompanyEmployeesSQL.exe
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\bin\Debug\CompanyEmployeesSQL.pdb
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL EF Elementary.csprojAssemblyReference.cache
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\MainWindow.g.cs
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\WinEditDepartments.g.cs
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\App.g.cs
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL_MarkupCompile.cache
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL_MarkupCompile.lref
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\App.baml
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\MainWindow.baml
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\StylesDictionary.baml
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\WinEditDepartments.baml
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL.g.resources
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL.Properties.Resources.resources
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL EF Elementary.csproj.GenerateResource.cache
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL EF Elementary.csproj.CoreCompileInputs.cache
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL EF Elementary.csproj.CopyComplete
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL.exe
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL.pdb
