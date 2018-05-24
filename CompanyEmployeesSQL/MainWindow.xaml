@@ -49,5 +49,6 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         </ComboBox>
         <!--SelectedValue="{Binding SelectedItem.Department, ElementName=DgEmployee, Mode=OneWay}"-->
         <TextBlock HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="Переместить в отдел:" VerticalAlignment="Top" Width="136"/>
+        <ProgressBar x:Name="pb1" Grid.Column="1" Margin="0,0,10,66" Height="18" VerticalAlignment="Bottom" Visibility="Hidden"/>
     </Grid>
 </Window>

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
 
 namespace CompanyEmployeesSQL
 {
@@ -27,6 +28,11 @@ namespace CompanyEmployeesSQL
         ObservableCollection<Department> EditOcDepartments = new ObservableCollection<Department>();
         public Department SelectedDepartment; //Выделенный отдел в данный момент
 
+        //ProgressBar
+        delegate void UpdateProgressBarDelegate(System.Windows.DependencyProperty dp, Object value);
+        static Dispatcher serviceDeligate = Application.Current.Dispatcher;
+        UpdateProgressBarDelegate updatePbDelegate;
+
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -35,6 +41,7 @@ namespace CompanyEmployeesSQL
         {
             if (mWindow.GetType() == typeof(MainWindow))
             { WinMainWindow = (MainWindow)mWindow; }
+            updatePbDelegate = new UpdateProgressBarDelegate(WinMainWindow.pb1.SetValue);
         }
         /// <summary>
         /// Загрузка всех данных из удаленной БД
@@ -57,8 +64,16 @@ namespace CompanyEmployeesSQL
         /// <param name="dep"></param>
         public void RemoveDepartment(Department dep)
         {
+            if (dep==null) { return; }
+
             var url2 = @"http://localhost:1173/api/Departments/" + dep.Id; //Строка по которой производиться обращение к таблице
             var res = httpClient.DeleteAsync(url2).Result; //отправляем 
+
+            IEnumerable<Employee> iE = OcEmployees.Where(x => x.DepartmentId == dep.Id);
+            foreach (Employee item in iE.ToArray<Employee>())
+            {
+                OcEmployees.Remove(item);
+            }
             OcDepartment.Remove(dep);
         }
         /// <summary>
@@ -77,7 +92,11 @@ namespace CompanyEmployeesSQL
         /// <param name="dep"></param>
         public void DepartmentSet(IEnumerable<Employee> emps, Department dep)
         {
-            if (dep==null) { return; }
+            if (dep == null) { return; }
+
+            //ProgressBar
+            double valuePB = SetProgressBar(emps.ToList<Employee>().Count);
+
             foreach (var item in emps)
             {
                 item.Department = dep; item.DepartmentId = dep.Id;
@@ -85,9 +104,28 @@ namespace CompanyEmployeesSQL
                 var url2 = @"http://localhost:1173/api/Employees/" + item.Id.ToString(); //Строка по которой производиться обращение к таблице
                 StringContent stringC = new StringContent(jsonEmp, Encoding.UTF8, "application/json"); //Строка которая будет передаваться web сервису
                 var res = httpClient.PutAsync(url2, stringC).Result; //отправляем 
+
+                //ProgressBar
+                serviceDeligate.Invoke(updatePbDelegate, DispatcherPriority.Background, new object[] { System.Windows.Controls.Primitives.RangeBase.ValueProperty, valuePB += 1 });
             }
+            serviceDeligate.Invoke(updatePbDelegate, DispatcherPriority.Background, new object[] { UIElement.VisibilityProperty, Visibility.Hidden }); //ProgressBar
             WinMainWindow.CbDepartmentSet.SelectedIndex = -1;
         }
+
+        /// <summary>
+        /// Инициализация прогресс бара
+        /// </summary>
+        /// <param name="maximum"></param>
+        /// <returns>Возвращает максимальное значение (иногда это удобно)</returns>
+        private double SetProgressBar(double maximum)
+        {
+            WinMainWindow.pb1.Minimum = 0;
+            double valuePB = 0; WinMainWindow.pb1.Maximum = maximum;
+            serviceDeligate.Invoke(updatePbDelegate, DispatcherPriority.Background, new object[] { ProgressBar.VisibilityProperty, Visibility.Visible });
+
+            return valuePB;
+        }
+
         /// <summary>
         /// Удалить сотрудника
         /// </summary>
