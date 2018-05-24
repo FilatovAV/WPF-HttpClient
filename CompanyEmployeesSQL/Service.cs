@@ -30,7 +30,7 @@ namespace CompanyEmployeesSQL
 
         //ProgressBar
         delegate void UpdateProgressBarDelegate(System.Windows.DependencyProperty dp, Object value);
-        static Dispatcher serviceDeligate = Application.Current.Dispatcher;
+        Dispatcher serviceDeligate = Application.Current.Dispatcher;
         UpdateProgressBarDelegate updatePbDelegate;
 
         /// <summary>
