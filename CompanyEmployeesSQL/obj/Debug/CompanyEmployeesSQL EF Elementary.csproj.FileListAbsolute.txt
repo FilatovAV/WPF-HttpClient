@@ -92,3 +92,4 @@ C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyE
 C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL EF Elementary.csproj.CopyComplete
 C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL.exe
 C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL.pdb
+C:\Users\filatov.a\Desktop\WPF-HttpClient\CompanyEmployeesSQL\obj\Debug\CompanyEmployeesSQL EF Elementary.csprojAssemblyReference.cache

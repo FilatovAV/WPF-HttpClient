@@ -66,6 +66,8 @@ namespace CompanyEmployeesSQL
         {
             if (dep==null) { return; }
 
+            MessageBoxResult msgr = MessageBox.Show($"Вы действительно желаете удалить отдел {dep.DepartmentName} и связанные данные?", "Отделы", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (msgr!= MessageBoxResult.Yes) { return; }
             var url2 = @"http://localhost:1173/api/Departments/" + dep.Id; //Строка по которой производиться обращение к таблице
             var res = httpClient.DeleteAsync(url2).Result; //отправляем 
 

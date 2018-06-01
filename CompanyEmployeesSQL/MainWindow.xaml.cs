@@ -45,14 +45,17 @@ namespace CompanyEmployeesSQL
             };
 
             DgEmployee.ItemsSource = serv.OcEmployees;
-            DgEmployee.RowEditEnding += (s, e) => { { serv.AfterEditEmployee(e); } };
-            DgEmployee.SelectionChanged += (s, e) => { {serv.SelectedEmployee = DgEmployee.SelectedItem as Employee; } };
-            DgEmployee.LostFocus += (s, e) => { { serv.SaveAfterEditDG(); } };
+            //При выборе новой строки или ячейки мы фиксируем сущность которая выбрана в данный момент
+            DgEmployee.SelectionChanged += (s, e) => { serv.SelectedEmployee = DgEmployee.SelectedItem as Employee; };
+            //Действие происходящее при завершении редактирования строки
+            DgEmployee.RowEditEnding += (s, e) => { serv.AfterEditEmployee(e); };
+            //Дествие происходящее при потери фокуса (даже если мы выбираем новую строку происходит потеря фокуса а затем вокус возвращается в контрол)
+            DgEmployee.LostFocus += (s, e) => { serv.SaveAfterEditDG(); };
 
-            BtnDepartmentsEdit.Click += (s, e) => { { serv.OpenDepartmentsEdit(); } };
+            BtnDepartmentsEdit.Click += (s, e) => { serv.OpenDepartmentsEdit(); };
 
-            BtnAddNewEmployee.Click += (s, e) => { { serv.AddNewEmployee(CbDepartmentSet.SelectedItem as Department); } };
-            BtnRemoveEmployee.Click += (s, e) => { { serv.RemoveEmployee(DgEmployee.SelectedItem as Employee); } };
+            BtnAddNewEmployee.Click += (s, e) => { serv.AddNewEmployee(CbDepartmentSet.SelectedItem as Department); };
+            BtnRemoveEmployee.Click += (s, e) => { serv.RemoveEmployee(DgEmployee.SelectedItem as Employee); };
         }
     }
 }

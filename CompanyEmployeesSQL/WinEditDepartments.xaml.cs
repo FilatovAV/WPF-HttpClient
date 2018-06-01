@@ -32,10 +32,10 @@ namespace CompanyEmployeesSQL
             BtnAddNewDepartment.Click += (s, e) => sServ.AddNewDepartment(DgDepartments.Items.Count + 1);
             BtnRemoveDepartment.Click += (s, e) => sServ.RemoveDepartment(DgDepartments.SelectedItem as Department);
 
-            DgDepartments.RowEditEnding += (s, e) => { { serv.AfterEditDepartments(e); } };
+            DgDepartments.RowEditEnding += (s, e) => { serv.AfterEditDepartments(e); };
             DgDepartments.ItemsSource = serv.OcDepartment;
-            DgDepartments.LostFocus += (s, e) => { { serv.SaveAfterEditDgDepartments(); } };
-            DgDepartments.SelectionChanged += (s, e) => { { serv.SelectedDepartment = DgDepartments.SelectedItem as Department; } };
+            DgDepartments.LostFocus += (s, e) => { serv.SaveAfterEditDgDepartments(); };
+            DgDepartments.SelectionChanged += (s, e) => { serv.SelectedDepartment = DgDepartments.SelectedItem as Department; };
         }
     }
 }

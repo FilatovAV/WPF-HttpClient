@@ -11,8 +11,6 @@ namespace CompanyEmployeesSQL
     {
         public int Id { get; set; }
 
-        //public string DepartmentName { get; set; }
-
         private string _departmentName;
         public string DepartmentName
         {
